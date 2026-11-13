@@ -5,6 +5,7 @@ import {
   Camera,
   Car,
   Home,
+  ListChecks,
   Sofa,
   Trees,
   Utensils,
@@ -137,7 +138,7 @@ export function CabinsSection({ onOpenAmenities }: CabinsSectionProps) {
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[#171E18]/10">
+            <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#171E18]/10">
               <a
                 href="#reservas"
                 className="inline-flex items-center justify-center px-5 py-2.5 min-h-[42px] text-sm font-medium text-[#F6F4EF] bg-[#1B5E3A] hover:bg-[#14472B] rounded-lg transition-colors whitespace-nowrap shrink-0"
@@ -147,9 +148,10 @@ export function CabinsSection({ onOpenAmenities }: CabinsSectionProps) {
               <button
                 type="button"
                 onClick={onOpenAmenities}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-[#171E18] hover:text-[#1B5E3A] hover:underline underline-offset-4 py-2 whitespace-nowrap shrink-0"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[42px] text-sm font-medium text-[#171E18] border border-[#171E18]/20 hover:bg-[#EFECE4] rounded-lg transition-colors whitespace-nowrap shrink-0"
               >
-                Ver detalle de servicios y comodidades
+                <ListChecks className="w-4 h-4 text-[#1B5E3A]" aria-hidden="true" />
+                <span>Ver servicios y comodidades incluidas</span>
               </button>
             </div>
           </div>

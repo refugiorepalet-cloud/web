@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <div id="inicio" className="min-h-screen flex flex-col bg-[#F6F4EF] text-[#171E18]">
-      <Navbar />
+      <Navbar onOpenAmenities={() => setAmenitiesOpen(true)} />
 
       <main className="flex-1">
         {/* Hero Section */}
@@ -75,13 +75,12 @@ export default function App() {
         </section>
 
         <CabinsSection onOpenAmenities={() => setAmenitiesOpen(true)} />
-        <BookingSection />
+        <BookingSection onOpenAmenities={() => setAmenitiesOpen(true)} />
+        <HorconGuideSection />
         <AmenitiesSection
           isAmenitiesOpen={amenitiesOpen}
-          onOpenAmenities={() => setAmenitiesOpen(true)}
           onCloseAmenities={() => setAmenitiesOpen(false)}
         />
-        <HorconGuideSection />
       </main>
 
       <Footer onOpenAmenities={() => setAmenitiesOpen(true)} />

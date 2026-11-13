@@ -2,13 +2,17 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { IMAGES } from '@/src/data/repaletData';
 
-export function Navbar() {
+interface NavbarProps {
+  onOpenAmenities: () => void;
+}
+
+export function Navbar({ onOpenAmenities }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
     { href: '#cabanas', label: 'Cabañas' },
     { href: '#tarifas', label: 'Tarifas' },
-    { href: '#comodidades', label: 'Comodidades' },
+    { href: '#comodidades', label: 'Comodidades', isModal: true },
     { href: '#horcon', label: 'Horcón' },
   ];
 
@@ -31,15 +35,26 @@ export function Navbar() {
 
         {/* Zone 2: 4 concise single-line nav links */}
         <nav aria-label="Navegación principal" className="hidden md:flex items-center gap-7">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-[#3E4C40] hover:text-[#171E18] hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B5E3A] rounded py-1"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.isModal ? (
+              <button
+                key={link.href}
+                type="button"
+                onClick={onOpenAmenities}
+                className="text-sm font-medium text-[#3E4C40] hover:text-[#171E18] hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B5E3A] rounded py-1"
+              >
+                {link.label}
+              </button>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-[#3E4C40] hover:text-[#171E18] hover:underline underline-offset-4 transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B5E3A] rounded py-1"
+              >
+                {link.label}
+              </a>
+            )
+          )}
         </nav>
 
         {/* Zone 3: 1 primary CTA */}
@@ -66,16 +81,30 @@ export function Navbar() {
       {/* Mobile menu panel */}
       {mobileOpen && (
         <div className="md:hidden border-t border-[#171E18]/10 bg-[#F6F4EF] px-6 py-4 space-y-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center min-h-[44px] text-base font-medium text-[#171E18] hover:text-[#1B5E3A] transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.isModal ? (
+              <button
+                key={link.href}
+                type="button"
+                onClick={() => {
+                  setMobileOpen(false);
+                  onOpenAmenities();
+                }}
+                className="w-full text-left flex items-center min-h-[44px] text-base font-medium text-[#171E18] hover:text-[#1B5E3A] transition-colors"
+              >
+                {link.label}
+              </button>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center min-h-[44px] text-base font-medium text-[#171E18] hover:text-[#1B5E3A] transition-colors"
+              >
+                {link.label}
+              </a>
+            )
+          )}
           <div className="pt-2">
             <a
               href="#reservas"

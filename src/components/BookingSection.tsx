@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Check, ChevronDown, Copy, MessageCircle, Star } from 'lucide-react';
+import { Check, ChevronDown, Copy, ListChecks, MessageCircle, Star } from 'lucide-react';
 import {
   AIRBNB_REVIEWS,
   CABINS,
@@ -25,7 +25,11 @@ function getTodayIso(): string {
   return `${y}-${m}-${d}`;
 }
 
-export function BookingSection() {
+interface BookingSectionProps {
+  onOpenAmenities: () => void;
+}
+
+export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
   const [selectedCabin, setSelectedCabin] = useState<string>(CABINS[0].name);
   const [checkInDate, setCheckInDate] = useState<string>('');
   const [nights, setNights] = useState<number>(PRICING.minNights);
@@ -396,6 +400,19 @@ export function BookingSection() {
             <p className="text-xs text-[#3E4C40] mt-4">
               Antes de regresar a casa, recuerda devolver las llaves presencialmente.
             </p>
+            <div className="mt-5 pt-5 border-t border-[#171E18]/10 flex flex-wrap items-center justify-between gap-3">
+              <span className="text-xs sm:text-sm text-[#3E4C40]">
+                ¿Quieres revisar el equipamiento por ambiente e indicaciones prácticas?
+              </span>
+              <button
+                type="button"
+                onClick={onOpenAmenities}
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[42px] text-sm font-medium text-[#171E18] bg-[#F6F4EF] border border-[#171E18]/20 hover:bg-[#EAE6DC] rounded-lg transition-colors whitespace-nowrap shrink-0"
+              >
+                <ListChecks className="w-4 h-4 text-[#1B5E3A]" aria-hidden="true" />
+                <span>Ver servicios y comodidades incluidas</span>
+              </button>
+            </div>
           </div>
 
           <div className="lg:col-span-5">
