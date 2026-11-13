@@ -24,7 +24,7 @@ export interface CoastalSpot {
   id: string;
   number: string;
   name: string;
-  category: 'playas' | 'miradores' | 'cultura';
+  category: 'playas' | 'miradores' | 'eventos';
   categoryLabel: string;
   distanceNote: string;
   description: string;
@@ -337,8 +337,8 @@ export const HORCON_SPOTS: CoastalSpot[] = [
     id: 'caleta-horcon',
     number: '04',
     name: 'Caleta de Horcón',
-    category: 'cultura',
-    categoryLabel: 'Caleta y Cultura',
+    category: 'playas',
+    categoryLabel: 'Playas',
     distanceNote: 'Centro bohemio y pesquero',
     description:
       'Pintoresca caleta de pescadores de la V Región con espíritu bohemio desde los años 60 y 70. Ceviches frescos, empanadas de mariscos, feria artesanal, callejuelas coloridas y el tradicional Puente de los Deseos.',
@@ -380,5 +380,29 @@ export const HORCON_SPOTS: CoastalSpot[] = [
       'La única playa nudista oficial de Chile, enmarcada por imponentes acantilados y naturaleza completamente virgen. Un rincón de respeto, libertad y desconexión absoluta.',
     image: asset('assets/repalet/playa_luna.jpg'),
     imageAlt: 'Playa Luna rodeada de acantilados naturales en Horcón',
+  },
+  {
+    id: 'eventos-el-tebo',
+    number: '08',
+    name: 'Centro de Eventos El Tebo',
+    category: 'eventos',
+    categoryLabel: 'Eventos y Cultura',
+    distanceNote: 'A minutos del refugio · Sector El Tebo',
+    description:
+      'Reconocido complejo turístico y centro de eventos frente al mar, muy elegido para matrimonios en la playa, celebraciones y encuentros. Destaca por su arquitectura costera rústica y su entorno directo hacia las arenas blancas de Playa El Tebo.',
+    image: asset('assets/aistudio/club_el_tebo_5358fd27.jpg'),
+    imageAlt: 'Centro de Eventos El Tebo con mesas al aire libre frente al mar en Horcón',
+  },
+  {
+    id: 'punta-los-lunes',
+    number: '09',
+    name: 'Centro de Eventos Punta Los Lunes',
+    category: 'eventos',
+    categoryLabel: 'Eventos y Cultura',
+    distanceNote: 'A minutos del refugio · Costa de Horcón',
+    description:
+      'Locación natural al aire libre rodeada de cipreses centenarios, vegetación costera y vista panorámica al Océano Pacífico. Un escenario emblemático para matrimonios y ceremonias frente al mar, ideal si buscas hospedaje tranquilo a pocos minutos de la fiesta.',
+    image: asset('assets/aistudio/punta_los_lunes_e1e58fd9.jpg'),
+    imageAlt: 'Centro de Eventos Punta Los Lunes con jardín frente al mar y cipreses en Horcón',
   },
 ];

@@ -3,7 +3,7 @@ import { ArrowUpRight, MapPin } from 'lucide-react';
 import { HORCON_SPOTS, IMAGES, LOCATION_MAP, type CoastalSpot } from '@/src/data/repaletData';
 import { ResilientImage } from './ResilientImage';
 
-type FilterType = 'all' | 'playas' | 'miradores' | 'cultura';
+type FilterType = 'all' | 'playas' | 'miradores' | 'eventos';
 
 export function HorconGuideSection() {
   const [filter, setFilter] = useState<FilterType>('all');
@@ -21,7 +21,7 @@ export function HorconGuideSection() {
     { id: 'all', label: 'Todos los lugares' },
     { id: 'playas', label: 'Playas' },
     { id: 'miradores', label: 'Miradores y Fauna' },
-    { id: 'cultura', label: 'Caleta y Cultura' },
+    { id: 'eventos', label: 'Eventos y Cultura' },
   ];
 
   return (
