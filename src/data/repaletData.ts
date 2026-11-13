@@ -27,6 +27,8 @@ export interface CoastalSpot {
   category: 'playas' | 'miradores' | 'eventos';
   categoryLabel: string;
   distanceNote: string;
+  walkDistance?: string;
+  driveDistance?: string;
   description: string;
   image: string;
   imageAlt: string;
@@ -72,6 +74,37 @@ export const PRICING = {
   airbnbRating: '4,99',
   airbnbYear: '2026',
 };
+
+export interface AirbnbReview {
+  id: string;
+  guest: string;
+  meta: string;
+  quote: string;
+}
+
+export const AIRBNB_REVIEWS: AirbnbReview[] = [
+  {
+    id: 'sara-2026',
+    guest: 'Sara',
+    meta: 'Enero 2026 · Estadía en pareja',
+    quote:
+      'Muy buena estadía, Claudio muy simpático y amable. Nos dejó todo super ordenado y limpio, la cabaña es preciosa y al lado de la playa del Tebo. Perfecto para venir en pareja! 10/10!',
+  },
+  {
+    id: 'gonzalo-2026',
+    guest: 'Gonzalo',
+    meta: 'Valparaíso, Chile · Febrero 2026',
+    quote:
+      'Claudio es un excelente anfitrión, respuestas rápidas ante consultas. La cabaña está impecable con todos los servicios descritos en la publicación, el lugar es hermoso y acogedor.',
+  },
+  {
+    id: 'andre-2026',
+    guest: 'Andre',
+    meta: 'Santiago, Chile · Enero 2026',
+    quote:
+      'Cabaña preciosa, tiene todo lo necesario para pasar unos días desconectado del caótico Santiago. Hermosos paisajes y muy cercana a playa el tebo y cau cau.',
+  },
+];
 
 export const CABINS: Cabin[] = [
   {
@@ -304,6 +337,7 @@ export const HORCON_SPOTS: CoastalSpot[] = [
     category: 'miradores',
     categoryLabel: 'Miradores y Fauna',
     distanceNote: 'A 300 metros del refugio',
+    walkDistance: '4 min a pie (300 m)',
     description:
       'El punto perfecto para maravillarse con las puestas de sol sobre el Pacífico, respirar el aire marino y, con suerte, avistar aves locales y chungungos entre las rocas. Da acceso por sendero a una íntima playa de rocas y pozas naturales.',
     image: asset('assets/repalet/mirador_ensenada.jpg'),
@@ -316,6 +350,8 @@ export const HORCON_SPOTS: CoastalSpot[] = [
     category: 'playas',
     categoryLabel: 'Playas',
     distanceNote: 'A pasos del sector residencial',
+    walkDistance: '8–10 min a pie',
+    driveDistance: '2 min en auto',
     description:
       'Un imperdible de Horcón que premia la caminata. Sus arenas finas y aguas cristalinas la convierten en una de las playas más hermosas de la zona, ideal para recorrer en pareja lejos de las multitudes.',
     image: asset('assets/repalet/playa_el_tebo.jpg'),
@@ -328,6 +364,8 @@ export const HORCON_SPOTS: CoastalSpot[] = [
     category: 'playas',
     categoryLabel: 'Playas',
     distanceNote: 'Acceso por sendero de bosque',
+    walkDistance: '12 min a pie',
+    driveDistance: '3–4 min en auto',
     description:
       'Se llega atravesando un místico sendero bajo un pequeño bosque costero que se abre paso hacia una playa tranquila y naturalmente protegida del viento.',
     image: asset('assets/repalet/playa_cau_cau.jpg'),
@@ -340,6 +378,8 @@ export const HORCON_SPOTS: CoastalSpot[] = [
     category: 'playas',
     categoryLabel: 'Playas',
     distanceNote: 'Centro bohemio y pesquero',
+    walkDistance: '25–30 min a pie',
+    driveDistance: '6 min en auto',
     description:
       'Pintoresca caleta de pescadores de la V Región con espíritu bohemio desde los años 60 y 70. Ceviches frescos, empanadas de mariscos, feria artesanal, callejuelas coloridas y el tradicional Puente de los Deseos.',
     image: asset('assets/repalet/caleta_horcon.jpg'),
@@ -352,6 +392,7 @@ export const HORCON_SPOTS: CoastalSpot[] = [
     category: 'playas',
     categoryLabel: 'Playas',
     distanceNote: 'Dirección norte desde la caleta',
+    driveDistance: '7–8 min en auto',
     description:
       'Extensa franja costera junto a la Caleta de Horcón donde se practican actividades náuticas como kayak, stand up paddle y paseos en velero.',
     image: asset('assets/repalet/playa_el_claron.jpg'),
@@ -364,6 +405,7 @@ export const HORCON_SPOTS: CoastalSpot[] = [
     category: 'miradores',
     categoryLabel: 'Miradores y Fauna',
     distanceNote: 'Entre Horcón y Maitencillo',
+    driveDistance: '10–12 min en auto',
     description:
       'Santuario natural de acantilados, playas y humedales con alto valor paleontológico. Refugio y nidificación para más de 8.000 aves, además de avistamiento de chungungos, zorros y lobos marinos.',
     image: asset('assets/repalet/playa_quirilluca.jpg'),
@@ -376,6 +418,7 @@ export const HORCON_SPOTS: CoastalSpot[] = [
     category: 'playas',
     categoryLabel: 'Playas',
     distanceNote: 'Rodeada de acantilados vírgenes',
+    driveDistance: '12 min en auto',
     description:
       'La única playa nudista oficial de Chile, enmarcada por imponentes acantilados y naturaleza completamente virgen. Un rincón de respeto, libertad y desconexión absoluta.',
     image: asset('assets/repalet/playa_luna.jpg'),
@@ -388,6 +431,8 @@ export const HORCON_SPOTS: CoastalSpot[] = [
     category: 'eventos',
     categoryLabel: 'Eventos y Cultura',
     distanceNote: 'A minutos del refugio · Sector El Tebo',
+    walkDistance: '8 min a pie',
+    driveDistance: '2 min en auto',
     description:
       'Reconocido complejo turístico y centro de eventos frente al mar, muy elegido para matrimonios en la playa, celebraciones y encuentros. Destaca por su arquitectura costera rústica y su entorno directo hacia las arenas blancas de Playa El Tebo.',
     image: asset('assets/aistudio/club_el_tebo_5358fd27.jpg'),
@@ -400,6 +445,7 @@ export const HORCON_SPOTS: CoastalSpot[] = [
     category: 'eventos',
     categoryLabel: 'Eventos y Cultura',
     distanceNote: 'A minutos del refugio · Costa de Horcón',
+    driveDistance: '5–7 min en auto',
     description:
       'Locación natural al aire libre rodeada de cipreses centenarios, vegetación costera y vista panorámica al Océano Pacífico. Un escenario emblemático para matrimonios y ceremonias frente al mar, ideal si buscas hospedaje tranquilo a pocos minutos de la fiesta.',
     image: asset('assets/aistudio/punta_los_lunes_e1e58fd9.jpg'),

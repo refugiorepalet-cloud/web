@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
-import { Check, Copy, MessageCircle, Star } from 'lucide-react';
+import { Check, ChevronDown, Copy, MessageCircle, Star } from 'lucide-react';
 import {
+  AIRBNB_REVIEWS,
   CABINS,
   CANCELLATION_RULES,
   CONTACT,
@@ -31,6 +32,7 @@ export function BookingSection() {
   const [guestName, setGuestName] = useState<string>('');
   const [copied, setCopied] = useState<boolean>(false);
   const [validationError, setValidationError] = useState<string>('');
+  const [showReviews, setShowReviews] = useState<boolean>(false);
 
   const todayIso = useMemo(() => getTodayIso(), []);
   const totalAmount = nights * PRICING.nightlyRateClp;
@@ -124,6 +126,53 @@ export function BookingSection() {
               <p className="text-sm text-[#3E4C40] leading-relaxed">
                 Te invitamos a verificar nuestras evaluaciones de 5 estrellas en Airbnb para tu total tranquilidad. Al reservar directamente por WhatsApp evitas las comisiones obligatorias de las plataformas internacionales y aseguras el valor real más conveniente.
               </p>
+
+              <div className="pt-3 border-t border-[#171E18]/10">
+                <button
+                  type="button"
+                  onClick={() => setShowReviews((prev) => !prev)}
+                  aria-expanded={showReviews}
+                  aria-controls="airbnb-reviews-panel"
+                  className="w-full flex items-center justify-between py-1.5 text-xs sm:text-sm font-semibold text-[#1B5E3A] hover:text-[#14472B] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B5E3A] rounded"
+                >
+                  <span>
+                    {showReviews
+                      ? 'Ocultar opiniones de huéspedes'
+                      : 'Ver 3 opiniones reales de huéspedes (Airbnb)'}
+                  </span>
+                  <ChevronDown
+                    className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
+                      showReviews ? 'rotate-180' : ''
+                    }`}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                {showReviews && (
+                  <div
+                    id="airbnb-reviews-panel"
+                    className="mt-3 pt-2 border-t border-[#171E18]/10 space-y-4"
+                  >
+                    <ul className="divide-y divide-[#171E18]/10">
+                      {AIRBNB_REVIEWS.map((review) => (
+                        <li key={review.id} className="py-3 first:pt-1 last:pb-1 space-y-1.5">
+                          <div className="flex items-center justify-between gap-2 text-xs">
+                            <span className="font-semibold text-[#171E18]">
+                              {review.guest}
+                            </span>
+                            <span className="text-[#3E4C40]">
+                              5,0 ★ · {review.meta}
+                            </span>
+                          </div>
+                          <p className="text-xs sm:text-sm text-[#3E4C40] leading-relaxed">
+                            “{review.quote}”
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="pt-2 space-y-2">

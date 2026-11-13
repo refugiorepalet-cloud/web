@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowUpRight, MapPin } from 'lucide-react';
+import { ArrowUpRight, Car, Footprints, MapPin } from 'lucide-react';
 import { HORCON_SPOTS, IMAGES, LOCATION_MAP, type CoastalSpot } from '@/src/data/repaletData';
 import { ResilientImage } from './ResilientImage';
 
@@ -167,8 +167,20 @@ export function HorconGuideSection() {
               <p className="text-sm sm:text-base text-[#3E4C40] leading-relaxed mb-5">
                 {activeSpot.description}
               </p>
-              <div className="pt-4 border-t border-[#171E18]/10 text-xs text-[#3E4C40]">
-                Al hacer tu reserva te entregamos el mapa de la guía y recomendaciones según la época de tu visita.
+              <div className="pt-4 border-t border-[#171E18]/10 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-[#3E4C40]">
+                <span className="font-medium text-[#171E18]">Desde la cabaña:</span>
+                {activeSpot.walkDistance && (
+                  <span className="inline-flex items-center gap-1.5 tabular-nums">
+                    <Footprints className="w-3.5 h-3.5 text-[#1B5E3A]" aria-hidden="true" />
+                    <span>{activeSpot.walkDistance}</span>
+                  </span>
+                )}
+                {activeSpot.driveDistance && (
+                  <span className="inline-flex items-center gap-1.5 tabular-nums">
+                    <Car className="w-3.5 h-3.5 text-[#1B5E3A]" aria-hidden="true" />
+                    <span>{activeSpot.driveDistance}</span>
+                  </span>
+                )}
               </div>
             </div>
           </div>
