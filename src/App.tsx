@@ -37,7 +37,7 @@ export default function App() {
                 </h1>
 
                 <p className="text-base sm:text-lg text-[#3E4C40] leading-relaxed mb-8">
-                  Desconéctate de la rutina en nuestras cabañas rústicas entre bosque y mar. A pasos de Playa El Tebo, Cau Cau y la pintoresca Caleta de Horcón, atendido directamente por Georgina y Claudio.
+                  Desconéctate de la rutina en nuestras cabañas rústicas entre bosque y mar. A minutos de Playa El Tebo, Cau Cau y la pintoresca Caleta de Horcón, atendido directamente por Georgina y Claudio.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4">

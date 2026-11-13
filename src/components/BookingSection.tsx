@@ -199,7 +199,7 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
               <div className="flex items-baseline justify-between pt-1">
                 <span className="text-sm text-[#3E4C40]">Modalidad de pago</span>
                 <span className="text-sm font-medium text-[#171E18] text-right">
-                  50% abono reserva · 50% al llegar
+                  Transferencia · 50% abono y 50% al llegar
                 </span>
               </div>
             </div>
@@ -269,8 +269,16 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
                   min={todayIso}
                   value={checkInDate}
                   onChange={(e) => {
+                    const nextDate = e.target.value;
+                    if (nextDate && nextDate.length === 10 && nextDate < todayIso) {
+                      setCheckInDate('');
+                      setValidationError(
+                        'Por favor selecciona una fecha de llegada igual o posterior a hoy.'
+                      );
+                      return;
+                    }
                     setValidationError('');
-                    setCheckInDate(e.target.value);
+                    setCheckInDate(nextDate);
                   }}
                   className="w-full min-h-[44px] px-3.5 py-2 text-sm text-[#171E18] bg-white border border-[#171E18]/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1B5E3A]"
                 />
@@ -342,6 +350,9 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
                   {formatClp(checkInBalance)} CLP
                 </span>
               </div>
+              <p className="pt-2.5 border-t border-[#171E18]/10 text-xs text-[#3E4C40] leading-relaxed">
+                Confirmada la disponibilidad por WhatsApp, la reserva se formaliza mediante transferencia bancaria directa.
+              </p>
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
@@ -349,6 +360,15 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => {
+                  if (checkInDate && checkInDate < todayIso) {
+                    e.preventDefault();
+                    setCheckInDate('');
+                    setValidationError(
+                      'Por favor selecciona una fecha de llegada igual o posterior a hoy.'
+                    );
+                  }
+                }}
                 className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 min-h-[44px] text-sm font-medium text-[#F6F4EF] bg-[#1B5E3A] hover:bg-[#14472B] rounded-lg transition-colors whitespace-nowrap"
               >
                 <MessageCircle className="w-4 h-4" aria-hidden="true" />
