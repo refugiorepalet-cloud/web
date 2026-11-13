@@ -186,17 +186,17 @@ export function HorconGuideSection() {
           </div>
         </div>
 
-        {/* Discreet Referential Location Map (OpenStreetMap - No API key required) */}
+        {/* Discreet Location Map (OpenStreetMap - No API key required) */}
         <div className="mt-16 pt-12 border-t border-[#171E18]/10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-5 space-y-4">
             <p className="text-xs font-medium text-[#3E4C40]">
-              Ubicación referencial · {LOCATION_MAP.sectorName}
+              Ubicación · {LOCATION_MAP.sectorName}
             </p>
             <h3 className="font-display text-2xl sm:text-3xl font-medium text-[#171E18]">
               Entre Playa Cau Cau y Playa El Tebo
             </h3>
             <p className="text-sm sm:text-base text-[#3E4C40] leading-relaxed">
-              Nuestro refugio está emplazado en un tranquilo entorno residencial costero de Horcón, a pasos del mirador Ensenada del Fraile y cercano a los centros de eventos El Tebo y Punta Los Lunes. Al confirmar tu estadía, te compartimos el punto exacto de llegada por WhatsApp.
+              Nuestro refugio está emplazado en un tranquilo entorno residencial costero de Horcón, a pasos del mirador Ensenada del Fraile y cercano a los centros de eventos El Tebo y Punta Los Lunes. Al confirmar tu estadía, te compartimos las indicaciones de acceso por WhatsApp.
             </p>
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
@@ -205,7 +205,7 @@ export function HorconGuideSection() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[40px] text-sm font-medium text-[#171E18] border border-[#171E18]/20 hover:bg-[#EFECE4] rounded-lg transition-colors whitespace-nowrap"
               >
-                <span>Abrir sector en Google Maps</span>
+                <span>Abrir en Google Maps</span>
                 <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
               </a>
               <a
@@ -222,7 +222,7 @@ export function HorconGuideSection() {
 
           <div className="lg:col-span-7 overflow-hidden rounded-xl border border-[#171E18]/12 bg-[#EAE6DC]">
             <iframe
-              title="Mapa referencial de Comunidad Ensenada del Fraile, Horcón"
+              title="Mapa de ubicación de Refugio Repalet en Comunidad Ensenada del Fraile, Horcón"
               src={LOCATION_MAP.embedUrl}
               loading="lazy"
               className="w-full h-[280px] sm:h-[320px] border-0 block"

@@ -6,6 +6,7 @@ interface ResilientImageProps {
   alt: string;
   className?: string;
   aspectClassName?: string;
+  priority?: boolean;
 }
 
 export function ResilientImage({
@@ -13,6 +14,7 @@ export function ResilientImage({
   alt,
   className = '',
   aspectClassName = 'aspect-[16/9]',
+  priority = false,
 }: ResilientImageProps) {
   const [hasError, setHasError] = useState(false);
 
@@ -33,6 +35,9 @@ export function ResilientImage({
     <img
       src={src}
       alt={alt}
+      loading={priority ? 'eager' : 'lazy'}
+      fetchPriority={priority ? 'high' : 'auto'}
+      decoding={priority ? 'sync' : 'async'}
       referrerPolicy="no-referrer"
       onError={() => setHasError(true)}
       className={`block w-full object-cover ${className}`}

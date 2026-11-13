@@ -52,18 +52,17 @@ export const CONTACT = {
   instagramHandle: '@refugiorepalet',
 };
 
-// Coordenadas referenciales del sector (Comunidad Ensenada del Fraile, entre Cau Cau y El Tebo).
-// Puedes actualizar lat y lng si deseas ajustar la posición exacta del marcador.
+// Coordenadas exactas de Refugio Repalet (Comunidad Ensenada del Fraile, Horcón).
 export const LOCATION_MAP = {
   sectorName: 'Comunidad Ensenada del Fraile, Horcón',
-  lat: -32.718,
-  lng: -71.499,
+  lat: -32.717498,
+  lng: -71.503067,
   embedUrl:
-    'https://www.openstreetmap.org/export/embed.html?bbox=-71.5150%2C-32.7320%2C-71.4720%2C-32.7000&layer=mapnik&marker=-32.7180%2C-71.4990',
+    'https://www.openstreetmap.org/export/embed.html?bbox=-71.5210%2C-32.7315%2C-71.4780%2C-32.7035&layer=mapnik&marker=-32.717498%2C-71.503067',
   openStreetMapUrl:
-    'https://www.openstreetmap.org/?mlat=-32.7180&mlon=-71.4990#map=15/-32.7180/-71.4990',
+    'https://www.openstreetmap.org/?mlat=-32.717498&mlon=-71.503067#map=16/-32.717498/-71.503067',
   googleMapsUrl:
-    'https://www.google.com/maps/search/?api=1&query=-32.7180,-71.4990',
+    'https://www.google.com/maps/search/?api=1&query=-32.717498,-71.503067',
 };
 
 export const PRICING = {

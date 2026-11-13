@@ -33,7 +33,7 @@ export default function App() {
                 </p>
 
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-[54px] font-medium leading-[1.08] tracking-tight text-[#171E18] [text-wrap:balance] mb-6">
-                  Descanso frente al mar, pensado solo para dos.
+                  Descanso entre bosque y mar, pensado solo para dos.
                 </h1>
 
                 <p className="text-base sm:text-lg text-[#3E4C40] leading-relaxed mb-8">
@@ -55,6 +55,7 @@ export default function App() {
                   src={IMAGES.hero}
                   alt="Atardecer en Refugio Repalet con vista hacia el mar en Horcón"
                   aspectClassName="aspect-[4/3]"
+                  priority
                   className="w-full h-full object-cover object-center scale-[1.02]"
                 />
               </div>
