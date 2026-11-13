@@ -1,0 +1,6 @@
+{
+  "name": "Refugio Repalet — Cabañas en Horcón",
+  "description": "Cabañas rústicas exclusivas para parejas en Ensenada del Fraile, Horcón, Chile. Reserva directa sin comisiones con Georgina y Claudio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
