@@ -67,15 +67,19 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
   }, [checkInDate]);
 
   const whatsappMessage = useMemo(() => {
-    const greeting = guestName.trim()
-      ? `Hola Georgina y Claudio, soy ${guestName.trim()}.`
-      : 'Hola Georgina y Claudio.';
-    const datePart =
-      checkInDateLabel && checkOutDateLabel
-        ? `Me gustaría consultar disponibilidad del ${checkInDateLabel} al ${checkOutDateLabel} (${nights} noches)`
-        : `Me gustaría consultar disponibilidad para una estadía de ${nights} noches`;
+    const trimmedName = guestName.trim();
 
-    return `${greeting} ${datePart} en ${selectedCabin} (2 huéspedes). Total estimado: ${formatClp(
+    if (!checkInDateLabel || !checkOutDateLabel) {
+      return trimmedName
+        ? `Hola Georgina y Claudio, soy ${trimmedName}. Visité la web de Refugio Repalet y me gustaría consultar por disponibilidad en sus cabañas en Horcón.`
+        : CONTACT.whatsappGreeting;
+    }
+
+    const greeting = trimmedName
+      ? `Hola Georgina y Claudio, soy ${trimmedName}.`
+      : 'Hola Georgina y Claudio.';
+
+    return `${greeting} Me gustaría consultar disponibilidad del ${checkInDateLabel} al ${checkOutDateLabel} (${nights} noches) en ${selectedCabin} (2 huéspedes). Total estimado: ${formatClp(
       totalAmount
     )} CLP (abono 50%: ${formatClp(depositAmount)} CLP).`;
   }, [guestName, checkInDateLabel, checkOutDateLabel, nights, selectedCabin, totalAmount, depositAmount]);

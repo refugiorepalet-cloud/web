@@ -31,7 +31,7 @@ export function Footer({ onOpenAmenities }: FooterProps) {
             </p>
             <div className="space-y-2 text-sm">
               <a
-                href={CONTACT.whatsappPrimary}
+                href={`${CONTACT.whatsappPrimary}?text=${encodeURIComponent(CONTACT.whatsappGreeting)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-[#F6F4EF] hover:text-[#A3D9B1] transition-colors py-1"

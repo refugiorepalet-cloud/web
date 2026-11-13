@@ -46,6 +46,8 @@ export const CONTACT = {
   hosts: 'Georgina y Claudio',
   location: 'Comunidad Ensenada del Fraile, Horcón, Puchuncaví, Chile',
   whatsappPrimary: 'https://wa.me/56982067917',
+  whatsappGreeting:
+    'Hola Georgina y Claudio, visité la web de Refugio Repalet y me gustaría consultar por disponibilidad en sus cabañas en Horcón.',
   phonePrimary: '+56 9 8206 7917',
   email: 'repalet@gmail.com',
   instagramUrl: 'https://www.instagram.com/refugiorepalet/',
