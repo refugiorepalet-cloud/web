@@ -52,6 +52,10 @@ export const CONTACT = {
   email: 'repalet@gmail.com',
   instagramUrl: 'https://www.instagram.com/refugiorepalet/',
   instagramHandle: '@refugiorepalet',
+  facebookUrl: 'https://www.facebook.com/refugiorepalet/',
+  facebookHandle: '/refugiorepalet',
+  airbnbProfileUrl: 'https://www.airbnb.cl/h/refugiorepalet',
+  airbnbHandle: 'airbnb.cl/h/refugiorepalet',
 };
 
 // Coordenadas exactas de Refugio Repalet (Comunidad Ensenada del Fraile, Horcón).
@@ -113,7 +117,7 @@ export const CABINS: Cabin[] = [
     name: 'Cabaña Colibrí',
     tagline: 'Luz natural, vista verde y descanso pensado para dos',
     description:
-      'Acogedora casa de huéspedes rústica diseñada especialmente para parejas que buscan desconectarse de la rutina. Cuenta con amplio patio, entorno natural privilegiado y ubicación estratégica cerca de los centros de eventos El Tebo y Punta Los Lunes.',
+      'Acogedora casa de huéspedes rústica diseñada especialmente para parejas que buscan desconectarse de la rutina. Cuenta con amplio patio, entorno natural privilegiado y ubicación estratégica cerca de los centros de eventos Club El Tebo y Punta Los Lunes.',
     spaces: [
       {
         id: 'exterior',
@@ -227,7 +231,7 @@ export const HOST_PILLARS = [
   {
     number: '02',
     title: 'Recepción presencial',
-    detail: 'Te recibimos personalmente en Horcón para mostrarte la cabaña y darte la bienvenida al refugio.',
+    detail: 'Te recibimos personalmente en Horcón para mostrarte la cabaña y darte la bienvenida.',
   },
   {
     number: '03',

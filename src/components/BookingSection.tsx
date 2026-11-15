@@ -393,10 +393,6 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
                 )}
               </button>
             </div>
-
-            <p className="mt-4 pt-4 border-t border-[#171E18]/10 text-xs text-[#3E4C40] leading-relaxed">
-              <strong className="font-semibold text-[#171E18]">Requisito de ingreso:</strong> Por normativa legal, te solicitaremos registrar la identidad de todos los huéspedes mediante cédula de identidad o pasaporte vigente antes o al momento del check-in.
-            </p>
           </div>
         </div>
 
