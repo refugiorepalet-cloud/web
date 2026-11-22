@@ -3,13 +3,14 @@ import {
   Bath,
   BedDouble,
   Camera,
-  Car,
+  ChevronLeft,
+  ChevronRight,
   Home,
   ListChecks,
   Sofa,
+  Sun,
   Trees,
   Utensils,
-  UtensilsCrossed,
 } from 'lucide-react';
 import { CABINS, CONTACT, HOST_PILLARS, type CabinSpace } from '@/src/data/repaletData';
 import { ResilientImage } from './ResilientImage';
@@ -23,37 +24,60 @@ function SpaceIcon({ id }: { id: CabinSpace['id'] }) {
   switch (id) {
     case 'exterior':
       return <Home className={cls} aria-hidden="true" />;
-    case 'sala':
+    case 'sala-comedor':
       return <Sofa className={cls} aria-hidden="true" />;
     case 'cocina':
       return <Utensils className={cls} aria-hidden="true" />;
-    case 'comedor':
-      return <UtensilsCrossed className={cls} aria-hidden="true" />;
     case 'habitacion':
       return <BedDouble className={cls} aria-hidden="true" />;
     case 'bano':
       return <Bath className={cls} aria-hidden="true" />;
-    case 'patio':
+    case 'estacionamiento-patio':
       return <Trees className={cls} aria-hidden="true" />;
-    case 'estacionamiento':
-      return <Car className={cls} aria-hidden="true" />;
+    case 'balcon':
+      return <Sun className={cls} aria-hidden="true" />;
   }
 }
 
 export function CabinsSection({ onOpenAmenities }: CabinsSectionProps) {
   const [selectedId, setSelectedId] = useState<'colibri' | 'chercan'>('colibri');
   const [selectedSpaceId, setSelectedSpaceId] = useState<CabinSpace['id']>('exterior');
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number>(0);
 
   const activeCabin = CABINS.find((c) => c.id === selectedId) ?? CABINS[0];
   const activeSpace =
     activeCabin.spaces.find((s) => s.id === selectedSpaceId) ?? activeCabin.spaces[0];
 
-  const displayedImage = activeSpace.image ?? activeCabin.image;
-  const displayedAlt = activeSpace.imageAlt ?? activeCabin.imageAlt;
+  const spacePhotos =
+    activeSpace.images && activeSpace.images.length > 0
+      ? activeSpace.images
+      : [
+          {
+            src: activeSpace.image ?? activeCabin.image,
+            alt: activeSpace.imageAlt ?? activeCabin.imageAlt,
+          },
+        ];
+
+  const safePhotoIndex = Math.min(selectedPhotoIndex, spacePhotos.length - 1);
+  const currentPhoto = spacePhotos[safePhotoIndex];
+  const hasMultiplePhotos = spacePhotos.length > 1;
 
   const handleSelectCabin = (id: 'colibri' | 'chercan') => {
     setSelectedId(id);
     setSelectedSpaceId('exterior');
+    setSelectedPhotoIndex(0);
+  };
+
+  const handleSelectSpace = (spaceId: CabinSpace['id']) => {
+    setSelectedSpaceId(spaceId);
+    setSelectedPhotoIndex(0);
+  };
+
+  const handleStepPhoto = (delta: number) => {
+    setSelectedPhotoIndex((prev) => {
+      const current = Math.min(prev, spacePhotos.length - 1);
+      return (current + delta + spacePhotos.length) % spacePhotos.length;
+    });
   };
 
   return (
@@ -97,18 +121,86 @@ export function CabinsSection({ onOpenAmenities }: CabinsSectionProps) {
           </div>
         </div>
 
-        {/* Asymmetric 2-column split with items-stretch */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-          <div className="lg:col-span-7 overflow-hidden rounded-xl aspect-[4/3] lg:aspect-auto relative bg-[#EAE6DC]">
-            <ResilientImage
-              src={displayedImage}
-              alt={displayedAlt}
-              aspectClassName="aspect-[4/3]"
-              className="w-full h-full object-cover object-center"
-            />
+        {/* Asymmetric 2-column split */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div className="lg:col-span-7 flex flex-col gap-3">
+            <div className="overflow-hidden rounded-xl aspect-[4/3] relative bg-[#EAE6DC]">
+              <ResilientImage
+                src={currentPhoto.src}
+                alt={currentPhoto.alt}
+                aspectClassName="aspect-[4/3]"
+                className="w-full h-full object-cover object-center"
+              />
+
+              {hasMultiplePhotos && (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => handleStepPhoto(-1)}
+                    aria-label="Foto anterior"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#171E18]/55 hover:bg-[#171E18]/80 text-[#F6F4EF] inline-flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F6F4EF]"
+                  >
+                    <ChevronLeft className="w-5 h-5" aria-hidden="true" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleStepPhoto(1)}
+                    aria-label="Siguiente foto"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#171E18]/55 hover:bg-[#171E18]/80 text-[#F6F4EF] inline-flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F6F4EF]"
+                  >
+                    <ChevronRight className="w-5 h-5" aria-hidden="true" />
+                  </button>
+                  <span className="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-[#171E18]/65 text-[#F6F4EF] text-xs font-medium tabular-nums">
+                    {safePhotoIndex + 1} / {spacePhotos.length}
+                  </span>
+                </>
+              )}
+            </div>
+
+            {hasMultiplePhotos && (
+              <div className="flex items-center justify-between gap-3">
+                <div
+                  className={`grid gap-2.5 w-full sm:w-auto ${
+                    spacePhotos.length === 2
+                      ? 'grid-cols-2'
+                      : spacePhotos.length >= 4
+                      ? 'grid-cols-4'
+                      : 'grid-cols-3'
+                  }`}
+                >
+                  {spacePhotos.map((photo, index) => {
+                    const isCurrent = index === safePhotoIndex;
+                    return (
+                      <button
+                        key={photo.src}
+                        type="button"
+                        onClick={() => setSelectedPhotoIndex(index)}
+                        aria-label={`Ver foto ${index + 1} de ${activeSpace.label}`}
+                        aria-pressed={isCurrent}
+                        className={`sm:w-24 aspect-[4/3] overflow-hidden rounded-lg border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B5E3A] ${
+                          isCurrent
+                            ? 'border-[#1B5E3A] ring-1 ring-[#1B5E3A]'
+                            : 'border-[#171E18]/15 opacity-75 hover:opacity-100'
+                        }`}
+                      >
+                        <ResilientImage
+                          src={photo.src}
+                          alt={photo.alt}
+                          aspectClassName="aspect-[4/3]"
+                          className="w-full h-full object-cover object-center"
+                        />
+                      </button>
+                    );
+                  })}
+                </div>
+                <p className="hidden sm:block text-xs text-[#3E4C40]">
+                  {activeSpace.label} · {spacePhotos.length} vistas
+                </p>
+              </div>
+            )}
           </div>
 
-          <div className="lg:col-span-5 flex flex-col justify-between py-2">
+          <div className="lg:col-span-5 flex flex-col justify-between py-1 lg:py-2">
             <div>
               <div className="flex items-center gap-2 text-xs text-[#3E4C40] mb-3">
                 <span>{activeCabin.capacity}</span>
@@ -157,25 +249,28 @@ export function CabinsSection({ onOpenAmenities }: CabinsSectionProps) {
           </div>
         </div>
 
-        {/* Discreet Sober Gallery Strip for Espacios Incluidos */}
+        {/* Discreet Sober Gallery Strip for Espacios Incluidos (7 spaces) */}
         <div className="mt-8 pt-6 border-t border-[#171E18]/10">
-          <div className="flex items-baseline justify-between gap-4 mb-4">
+          <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
             <p className="text-xs font-semibold text-[#171E18]">
               Espacios incluidos en {activeCabin.name}
             </p>
             <p className="text-xs text-[#3E4C40]">
-              Selecciona cada ambiente para ver su detalle y fotografía
+              Selecciona cada ambiente para recorrer sus fotografías
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5">
             {activeCabin.spaces.map((space) => {
               const isActive = space.id === activeSpace.id;
+              const coverSrc = space.images?.[0]?.src ?? space.image;
+              const coverAlt =
+                space.images?.[0]?.alt ?? space.imageAlt ?? `${space.label} en ${activeCabin.name}`;
               return (
                 <button
                   key={space.id}
                   type="button"
-                  onClick={() => setSelectedSpaceId(space.id)}
+                  onClick={() => handleSelectSpace(space.id)}
                   className={`group text-left rounded-lg border transition-colors overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B5E3A] ${
                     isActive
                       ? 'border-[#1B5E3A] bg-[#EFECE4]'
@@ -183,10 +278,10 @@ export function CabinsSection({ onOpenAmenities }: CabinsSectionProps) {
                   }`}
                 >
                   <div className="aspect-[4/3] w-full overflow-hidden bg-[#EFECE4] flex flex-col items-center justify-center">
-                    {space.image ? (
+                    {coverSrc ? (
                       <ResilientImage
-                        src={space.image}
-                        alt={space.imageAlt ?? `${space.label} en ${activeCabin.name}`}
+                        src={coverSrc}
+                        alt={coverAlt}
                         aspectClassName="aspect-[4/3]"
                         className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
                       />

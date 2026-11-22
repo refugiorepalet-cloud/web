@@ -1,12 +1,25 @@
 const asset = (relativePath: string) =>
   `${import.meta.env.BASE_URL}${relativePath.replace(/^\/+/, '')}`;
 
+export interface CabinSpacePhoto {
+  src: string;
+  alt: string;
+}
+
 export interface CabinSpace {
-  id: 'exterior' | 'sala' | 'cocina' | 'comedor' | 'habitacion' | 'bano' | 'patio' | 'estacionamiento';
+  id:
+    | 'exterior'
+    | 'sala-comedor'
+    | 'cocina'
+    | 'habitacion'
+    | 'bano'
+    | 'estacionamiento-patio'
+    | 'balcon';
   label: string;
   detail: string;
   image?: string;
   imageAlt?: string;
+  images?: CabinSpacePhoto[];
 }
 
 export interface Cabin {
@@ -37,7 +50,7 @@ export interface CoastalSpot {
 export const IMAGES = {
   logo: asset('assets/aistudio/logo_transp_45a8aadc.png'),
   hero: asset('assets/aistudio/image_727f47dd.png'),
-  colibri: asset('assets/aistudio/FOT_WEB_REF_REP_colibri_9003df60.webp'),
+  colibri: asset('assets/repalet/colibri/cabana-colibri-exterior-1-horcon.webp'),
   chercan: asset('assets/aistudio/FOT_WEB_REF_REP_chercan_bc3fa86d.webp'),
   horconMain: asset('assets/aistudio/playa_quirilluca_d73911a2.jpg'),
 };
@@ -122,49 +135,154 @@ export const CABINS: Cabin[] = [
       {
         id: 'exterior',
         label: 'Vista exterior',
-        detail: 'Fachada en madera rústica, balcón superior privado y acceso rodeado de jardín.',
-        image: IMAGES.colibri,
-        imageAlt: 'Vista exterior de Cabaña Colibrí rodeada de jardín verde en Refugio Repalet, Horcón',
+        detail: 'Fachada rústica en madera de dos niveles con deck de acceso, jardín costero y toldo vela.',
+        image: asset('assets/repalet/colibri/cabana-colibri-exterior-1-horcon.webp'),
+        imageAlt: 'Vista exterior completa de Cabaña Colibrí rodeada de jardín verde, deck y balcón en Horcón',
+        images: [
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-exterior-1-horcon.webp'),
+            alt: 'Vista exterior de Cabaña Colibrí con jardín verde, escalera de acceso y balcón superior en Horcón',
+          },
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-exterior-2-horcon.webp'),
+            alt: 'Fachada lateral y deck de entrada de Cabaña Colibrí rodeada de jardín en Horcón',
+          },
+        ],
       },
       {
-        id: 'sala',
-        label: 'Sala',
-        detail: 'Espacio de estar luminoso con sillón, cortinas y vista al entorno natural.',
+        id: 'sala-comedor',
+        label: 'Sala / Comedor',
+        detail: 'Ambiente luminoso integrado con mesa comedor para dos, sillón cómodo y amplio ventanal hacia el jardín.',
+        image: asset('assets/repalet/colibri/cabana-colibri-sala-comedor-1-horcon.webp'),
+        imageAlt: 'Sala y comedor integrados en Cabaña Colibrí con vista al jardín en Horcón',
+        images: [
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-sala-comedor-1-horcon.webp'),
+            alt: 'Vista panorámica de sala, comedor y cocina integrada en Cabaña Colibrí, Horcón',
+          },
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-sala-comedor-2-horcon.webp'),
+            alt: 'Sector de estar con sillón, cojines, mesa auxiliar y vista al jardín en Cabaña Colibrí, Horcón',
+          },
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-sala-comedor-3-horcon.webp'),
+            alt: 'Mesa comedor para dos con sillas turquesa y ventanal al patio en Cabaña Colibrí',
+          },
+        ],
       },
       {
         id: 'cocina',
-        label: 'Cocina equipada',
-        detail: 'Mini nevera, microondas, hervidor, tostador, batería de cocina y menaje para 2.',
-      },
-      {
-        id: 'comedor',
-        label: 'Comedor',
-        detail: 'Mesa comedor íntima integrada a la cocina y sala para desayunos y cenas.',
+        label: 'Cocina',
+        detail: 'Encimera rústica con cocinilla eléctrica de dos platos, lavaplatos, mini nevera, hervidor, microondas, tostador y menaje para 2.',
+        image: asset('assets/repalet/colibri/cabana-colibri-cocina-1-horcon.webp'),
+        imageAlt: 'Cocina rústica equipada de Cabaña Colibrí con mesón de madera y cocinilla en Horcón',
+        images: [
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-cocina-1-horcon.webp'),
+            alt: 'Mesón de madera de la cocina equipada con cocinilla y lámpara colgante en Cabaña Colibrí',
+          },
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-cocina-2-horcon.webp'),
+            alt: 'Cocina de Cabaña Colibrí con mini nevera, lavaplatos y salida visual hacia el comedor',
+          },
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-cocina-3-horcon.webp'),
+            alt: 'Vista frontal de la cocina integrada hacia el estar y ventanal en Cabaña Colibrí',
+          },
+        ],
       },
       {
         id: 'habitacion',
         label: 'Habitación',
-        detail: 'Cama de dos plazas, armario, calefactor portátil, ropa de cama y balcón privado.',
+        detail: 'Dormitorio en segundo nivel con cama de dos plazas, veladores, vitral artesanal y acceso directo al balcón privado.',
+        image: asset('assets/repalet/colibri/cabana-colibri-habitacion-1-horcon.webp'),
+        imageAlt: 'Habitación matrimonial de Cabaña Colibrí con salida directa al balcón privado en Horcón',
+        images: [
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-habitacion-1-horcon.webp'),
+            alt: 'Dormitorio principal de Cabaña Colibrí con puerta hacia el balcón y vista despejada',
+          },
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-habitacion-2-horcon.webp'),
+            alt: 'Cama de dos plazas con respaldo de madera y cortina roller en Cabaña Colibrí',
+          },
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-habitacion-3-horcon.webp'),
+            alt: 'Habitación de Cabaña Colibrí junto al ventanal de vitral en Horcón',
+          },
+        ],
       },
       {
         id: 'bano',
-        label: 'Baño privado',
-        detail: 'Shower door con ducha teléfono, agua caliente con calefont automático y accesorios.',
+        label: 'Baño',
+        detail: 'Baño privado con shower door, ducha teléfono, agua caliente con calefont automático, lavamanos y accesorios esenciales.',
+        image: asset('assets/repalet/colibri/cabana-colibri-bano-1-horcon.webp'),
+        imageAlt: 'Baño privado de Cabaña Colibrí con lavamanos, espejo y cabina de ducha en Horcón',
+        images: [
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-bano-1-horcon.webp'),
+            alt: 'Vista del baño privado con lavamanos y shower door abierto en Cabaña Colibrí',
+          },
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-bano-2-horcon.webp'),
+            alt: 'Baño completo con cabina shower door cerrada, lavamanos y WC en Cabaña Colibrí',
+          },
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-bano-3-horcon.webp'),
+            alt: 'Detalle de WC y sector de ducha en el baño privado de Cabaña Colibrí',
+          },
+        ],
       },
       {
-        id: 'patio',
-        label: 'Patio amplio',
-        detail: 'Área exterior con hamaca, lugar para fogata y acceso hacia senderos y playa.',
+        id: 'estacionamiento-patio',
+        label: 'Estacionamiento / Patio',
+        detail: 'Estacionamiento privado dentro del recinto, amplio patio con jardín verde y espacio común para disfrutar los atardeceres.',
+        image: asset('assets/repalet/colibri/cabana-colibri-estacionamiento-patio-1-horcon.webp'),
+        imageAlt: 'Amplio patio verde y zona de estacionamiento privado frente a Cabaña Colibrí en Horcón',
+        images: [
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-estacionamiento-patio-1-horcon.webp'),
+            alt: 'Acceso, estacionamiento y jardín frontal de Cabaña Colibrí en Refugio Repalet, Horcón',
+          },
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-estacionamiento-patio-2-horcon.webp'),
+            alt: 'Patio de Refugio Repalet al atardecer con sillón lounge y luces cálidas entre cabañas',
+          },
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-estacionamiento-patio-3-horcon.webp'),
+            alt: 'Brindis al atardecer disfrutando la caída del sol en Refugio Repalet, Horcón',
+          },
+        ],
       },
       {
-        id: 'estacionamiento',
-        label: 'Estacionamiento',
-        detail: 'Estacionamiento privado dentro del recinto para mayor comodidad y seguridad.',
+        id: 'balcon',
+        label: 'Balcón',
+        detail: 'Balcón superior privado con toldo vela, sillones de madera, mesa auxiliar y vista abierta hacia el entorno costero y el mar.',
+        image: asset('assets/repalet/colibri/cabana-colibri-balcon-1-horcon.webp'),
+        imageAlt: 'Balcón privado en segundo piso de Cabaña Colibrí con vista hacia el mar en Horcón',
+        images: [
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-balcon-1-horcon.webp'),
+            alt: 'Balcón superior privado de Cabaña Colibrí con toldo vela y horizonte marino al fondo',
+          },
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-balcon-2-horcon.webp'),
+            alt: 'Vista despejada desde el balcón de Cabaña Colibrí hacia la costa de Horcón',
+          },
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-balcon-3-horcon.webp'),
+            alt: 'Sillones de madera con cojines y mesa lateral en el balcón privado de Cabaña Colibrí',
+          },
+          {
+            src: asset('assets/repalet/colibri/cabana-colibri-balcon-4-horcon.webp'),
+            alt: 'Puesta de sol sobre el mar y horizonte costero vista desde el balcón de Cabaña Colibrí, Horcón',
+          },
+        ],
       },
     ],
     capacity: 'Máximo 2 huéspedes',
-    image: IMAGES.colibri,
-    imageAlt: 'Vista exterior de Cabaña Colibrí rodeada de jardín verde en Refugio Repalet, Horcón',
+    image: asset('assets/repalet/colibri/cabana-colibri-exterior-1-horcon.webp'),
+    imageAlt: 'Vista exterior de Cabaña Colibrí rodeada de jardín verde, deck y balcón en Refugio Repalet, Horcón',
   },
   {
     id: 'chercan',
@@ -181,19 +299,14 @@ export const CABINS: Cabin[] = [
         imageAlt: 'Cabaña Chercán al atardecer con fogón encendido en Refugio Repalet, Horcón',
       },
       {
-        id: 'sala',
-        label: 'Sala',
-        detail: 'Ambiente acogedor con sillón, luz cálida y cortinas para descansar sin apuros.',
+        id: 'sala-comedor',
+        label: 'Sala / Comedor',
+        detail: 'Ambiente acogedor con sillón, mesa comedor para dos y luz cálida para descansar sin apuros.',
       },
       {
         id: 'cocina',
-        label: 'Cocina equipada',
+        label: 'Cocina',
         detail: 'Mini nevera, microondas, hervidor, tostador, batería de cocina y menaje para 2.',
-      },
-      {
-        id: 'comedor',
-        label: 'Comedor',
-        detail: 'Mesa comedor funcional para compartir tranquilamente en la cabaña.',
       },
       {
         id: 'habitacion',
@@ -202,18 +315,18 @@ export const CABINS: Cabin[] = [
       },
       {
         id: 'bano',
-        label: 'Baño privado',
+        label: 'Baño',
         detail: 'Shower door con ducha teléfono, agua caliente con calefont automático y accesorios.',
       },
       {
-        id: 'patio',
-        label: 'Patio privado',
-        detail: 'Entorno natural con sector para hacer fogata, hamaca y tranquilidad costera.',
+        id: 'estacionamiento-patio',
+        label: 'Estacionamiento / Patio',
+        detail: 'Estacionamiento privado dentro del predio y patio natural con sector para hacer fogata y hamaca.',
       },
       {
-        id: 'estacionamiento',
-        label: 'Estacionamiento',
-        detail: 'Estacionamiento privado dentro del predio para tu vehículo durante toda la estadía.',
+        id: 'balcon',
+        label: 'Balcón',
+        detail: 'Balcón privado rodeado de tranquilidad costera y vegetación del sector.',
       },
     ],
     capacity: 'Máximo 2 huéspedes',
