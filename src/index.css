@@ -1,15 +1,44 @@
 @import "tailwindcss";
 
-@theme {
+:root {
+  --rp-canvas: #f5ebdd;
+  --rp-surface: #d9c3a0;
+  --rp-stone: #d9c3a0;
+  --rp-stone-hover: #ccb28a;
+  --rp-ink: #3f2e26;
+  --rp-muted: #5b453a;
+  --rp-cta: #f16e3f;
+  --rp-cta-hover: #d85a2c;
+  --rp-accent: #4ebbad;
+  --rp-accent-ink: #2b8a7e;
+  --rp-footer-hover: #4ebbad;
+  --rp-footer-soft: #eadbc8;
+  --rp-footer-dim: #cbb89d;
+}
+
+@theme inline {
   --font-display: "Fraunces", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --color-canvas: var(--rp-canvas);
+  --color-surface: var(--rp-surface);
+  --color-stone: var(--rp-stone);
+  --color-stone-hover: var(--rp-stone-hover);
+  --color-ink: var(--rp-ink);
+  --color-muted: var(--rp-muted);
+  --color-cta: var(--rp-cta);
+  --color-cta-hover: var(--rp-cta-hover);
+  --color-accent: var(--rp-accent);
+  --color-accent-ink: var(--rp-accent-ink);
+  --color-footer-hover: var(--rp-footer-hover);
+  --color-footer-soft: var(--rp-footer-soft);
+  --color-footer-dim: var(--rp-footer-dim);
 }
 
 @layer base {
   html {
     font-family: var(--font-sans);
-    color: #171e18;
-    background-color: #f6f4ef;
+    color: var(--rp-ink);
+    background-color: var(--rp-canvas);
   }
 
   h1, h2, h3, .font-display {

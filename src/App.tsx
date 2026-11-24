@@ -19,7 +19,7 @@ export default function App() {
   ];
 
   return (
-    <div id="inicio" className="min-h-screen flex flex-col bg-[#F6F4EF] text-[#171E18]">
+    <div id="inicio" className="min-h-screen flex flex-col bg-canvas text-ink">
       <Navbar onOpenAmenities={() => setAmenitiesOpen(true)} />
 
       <main className="flex-1">
@@ -28,22 +28,22 @@ export default function App() {
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
               <div className="lg:col-span-5 flex flex-col justify-center">
-                <p className="text-xs font-medium text-[#3E4C40] mb-4">
+                <p className="text-xs font-medium text-muted mb-4">
                   Horcón, Puchuncaví · Comunidad Ensenada del Fraile
                 </p>
 
-                <h1 className="font-display text-4xl sm:text-5xl lg:text-[54px] font-medium leading-[1.08] tracking-tight text-[#171E18] [text-wrap:balance] mb-6">
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-[54px] font-medium leading-[1.08] tracking-tight text-ink [text-wrap:balance] mb-6">
                   Descanso entre bosque y mar, pensado solo para dos.
                 </h1>
 
-                <p className="text-base sm:text-lg text-[#3E4C40] leading-relaxed mb-8">
+                <p className="text-base sm:text-lg text-muted leading-relaxed mb-8">
                   Desconéctate de la rutina en nuestras cabañas rústicas entre bosque y mar. A minutos de Playa El Tebo, Cau Cau y la pintoresca Caleta de Horcón, atendido directamente por Georgina y Claudio.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4">
                   <a
                     href="#reservas"
-                    className="inline-flex items-center justify-center px-6 py-3 min-h-[44px] text-sm font-medium text-[#F6F4EF] bg-[#1B5E3A] hover:bg-[#14472B] rounded-lg transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B5E3A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F6F4EF]"
+                    className="inline-flex items-center justify-center px-6 py-3 min-h-[44px] text-sm font-medium text-canvas bg-cta hover:bg-cta-hover rounded-lg transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
                   >
                     Calcular estadía y reservar
                   </a>
@@ -62,11 +62,11 @@ export default function App() {
             </div>
 
             {/* Full-width 4-column facts strip below hero split */}
-            <div className="mt-12 pt-8 border-t border-[#171E18]/12 grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="mt-12 pt-8 border-t border-ink/12 grid grid-cols-2 lg:grid-cols-4 gap-6">
               {keyHighlights.map((item) => (
                 <div key={item.label}>
-                  <p className="text-xs text-[#3E4C40] mb-1">{item.label}</p>
-                  <p className="text-base sm:text-lg font-semibold text-[#171E18] tabular-nums">
+                  <p className="text-xs text-muted mb-1">{item.label}</p>
+                  <p className="text-base sm:text-lg font-semibold text-ink tabular-nums">
                     {item.value}
                   </p>
                 </div>

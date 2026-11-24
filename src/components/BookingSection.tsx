@@ -107,41 +107,41 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
   };
 
   return (
-    <section id="tarifas" className="py-20 lg:py-24 border-t border-[#171E18]/10 bg-[#EFECE4]">
+    <section id="tarifas" className="py-20 lg:py-24 border-t border-ink/10 bg-surface">
       <div className="max-w-[1200px] mx-auto px-6">
         {/* Trust Proof + Direct Booking Proposition */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start mb-16">
           <div className="lg:col-span-5 space-y-6">
             <div>
-              <p className="text-xs font-medium text-[#3E4C40] mb-3">
+              <p className="text-xs font-medium text-muted mb-3">
                 Reserva directa sin comisiones
               </p>
-              <h2 className="font-display text-3xl sm:text-4xl font-medium tracking-tight text-[#171E18] [text-wrap:balance]">
+              <h2 className="font-display text-3xl sm:text-4xl font-medium tracking-tight text-ink [text-wrap:balance]">
                 Tarifa transparente y respaldo de comunidad
               </h2>
             </div>
 
-            <div className="p-6 rounded-xl bg-[#F6F4EF] border border-[#171E18]/10 space-y-3">
-              <div className="flex items-center gap-2 text-[#1B5E3A]">
-                <Star className="w-5 h-5 fill-[#1B5E3A]" aria-hidden="true" />
-                <span className="font-display text-2xl font-semibold tabular-nums text-[#171E18]">
+            <div className="p-6 rounded-xl bg-canvas border border-ink/10 space-y-3">
+              <div className="flex items-center gap-2 text-accent">
+                <Star className="w-5 h-5 fill-accent" aria-hidden="true" />
+                <span className="font-display text-2xl font-semibold tabular-nums text-ink">
                   {PRICING.airbnbRating} ★ en Airbnb
                 </span>
-                <span className="text-xs text-[#3E4C40] tabular-nums">
+                <span className="text-xs text-muted tabular-nums">
                   · {PRICING.airbnbYear}
                 </span>
               </div>
-              <p className="text-sm text-[#3E4C40] leading-relaxed">
+              <p className="text-sm text-muted leading-relaxed">
                 Te invitamos a verificar nuestras evaluaciones de 5 estrellas en Airbnb para tu total tranquilidad. Al reservar directamente por WhatsApp evitas las comisiones obligatorias de las plataformas internacionales y aseguras el valor real más conveniente.
               </p>
 
-              <div className="pt-3 border-t border-[#171E18]/10">
+              <div className="pt-3 border-t border-ink/10">
                 <button
                   type="button"
                   onClick={() => setShowReviews((prev) => !prev)}
                   aria-expanded={showReviews}
                   aria-controls="airbnb-reviews-panel"
-                  className="w-full flex items-center justify-between py-1.5 text-xs sm:text-sm font-semibold text-[#1B5E3A] hover:text-[#14472B] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B5E3A] rounded"
+                  className="w-full flex items-center justify-between py-1.5 text-xs sm:text-sm font-semibold text-accent-ink hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
                 >
                   <span>
                     {showReviews
@@ -159,20 +159,20 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
                 {showReviews && (
                   <div
                     id="airbnb-reviews-panel"
-                    className="mt-3 pt-2 border-t border-[#171E18]/10 space-y-4"
+                    className="mt-3 pt-2 border-t border-ink/10 space-y-4"
                   >
-                    <ul className="divide-y divide-[#171E18]/10">
+                    <ul className="divide-y divide-ink/10">
                       {AIRBNB_REVIEWS.map((review) => (
                         <li key={review.id} className="py-3 first:pt-1 last:pb-1 space-y-1.5">
                           <div className="flex items-center justify-between gap-2 text-xs">
-                            <span className="font-semibold text-[#171E18]">
+                            <span className="font-semibold text-ink">
                               {review.guest}
                             </span>
-                            <span className="text-[#3E4C40]">
+                            <span className="text-muted">
                               5,0 ★ · {review.meta}
                             </span>
                           </div>
-                          <p className="text-xs sm:text-sm text-[#3E4C40] leading-relaxed">
+                          <p className="text-xs sm:text-sm text-muted leading-relaxed">
                             “{review.quote}”
                           </p>
                         </li>
@@ -184,21 +184,21 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
             </div>
 
             <div className="pt-2 space-y-2">
-              <div className="flex items-baseline justify-between border-b border-[#171E18]/10 pb-3">
-                <span className="text-sm text-[#3E4C40]">Tarifa por noche (2 huéspedes)</span>
-                <span className="text-lg font-semibold text-[#171E18] tabular-nums">
+              <div className="flex items-baseline justify-between border-b border-ink/10 pb-3">
+                <span className="text-sm text-muted">Tarifa por noche (2 huéspedes)</span>
+                <span className="text-lg font-semibold text-ink tabular-nums">
                   {formatClp(PRICING.nightlyRateClp)} CLP
                 </span>
               </div>
-              <div className="flex items-baseline justify-between border-b border-[#171E18]/10 pb-3">
-                <span className="text-sm text-[#3E4C40]">Estadía mínima</span>
-                <span className="text-sm font-medium text-[#171E18] tabular-nums">
+              <div className="flex items-baseline justify-between border-b border-ink/10 pb-3">
+                <span className="text-sm text-muted">Estadía mínima</span>
+                <span className="text-sm font-medium text-ink tabular-nums">
                   {PRICING.minNights} noches
                 </span>
               </div>
               <div className="flex items-baseline justify-between pt-1">
-                <span className="text-sm text-[#3E4C40]">Modalidad de pago</span>
-                <span className="text-sm font-medium text-[#171E18] text-right">
+                <span className="text-sm text-muted">Modalidad de pago</span>
+                <span className="text-sm font-medium text-ink text-right">
                   Transferencia · 50% abono y 50% al llegar
                 </span>
               </div>
@@ -208,13 +208,13 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
           {/* Interactive Booking & Deposit Calculator */}
           <div
             id="reservas"
-            className="lg:col-span-7 p-6 sm:p-8 rounded-xl bg-[#F6F4EF] border border-[#171E18]/12"
+            className="lg:col-span-7 p-6 sm:p-8 rounded-xl bg-canvas border border-ink/12"
           >
-            <div className="pb-6 border-b border-[#171E18]/10 mb-6">
-              <h3 className="font-display text-2xl font-medium text-[#171E18]">
+            <div className="pb-6 border-b border-ink/10 mb-6">
+              <h3 className="font-display text-2xl font-medium text-ink">
                 Calcula tu estadía y reserva directo
               </h3>
-              <p className="text-sm text-[#3E4C40] mt-1">
+              <p className="text-sm text-muted mt-1">
                 Selecciona tus fechas estimadas y envíanos tu consulta prearmada por WhatsApp para confirmar disponibilidad.
               </p>
             </div>
@@ -223,7 +223,7 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
               <div>
                 <label
                   htmlFor="cabin-select"
-                  className="block text-xs font-semibold text-[#3E4C40] mb-2"
+                  className="block text-xs font-semibold text-muted mb-2"
                 >
                   Cabaña de preferencia
                 </label>
@@ -231,7 +231,7 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
                   id="cabin-select"
                   value={selectedCabin}
                   onChange={(e) => setSelectedCabin(e.target.value)}
-                  className="w-full min-h-[44px] px-3.5 py-2 text-sm text-[#171E18] bg-white border border-[#171E18]/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1B5E3A]"
+                  className="w-full min-h-[44px] px-3.5 py-2 text-sm text-ink bg-white border border-ink/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
                 >
                   <option value="Cabaña Colibrí">Cabaña Colibrí</option>
                   <option value="Cabaña Chercán">Cabaña Chercán</option>
@@ -242,7 +242,7 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
               <div>
                 <label
                   htmlFor="guest-name"
-                  className="block text-xs font-semibold text-[#3E4C40] mb-2"
+                  className="block text-xs font-semibold text-muted mb-2"
                 >
                   Tu nombre (opcional)
                 </label>
@@ -252,14 +252,14 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
                   value={guestName}
                   onChange={(e) => setGuestName(e.target.value)}
                   placeholder="Ej. Camila y Tomás"
-                  className="w-full min-h-[44px] px-3.5 py-2 text-sm text-[#171E18] bg-white border border-[#171E18]/15 rounded-lg placeholder:text-[#3E4C40]/50 focus:outline-none focus:ring-2 focus:ring-[#1B5E3A]"
+                  className="w-full min-h-[44px] px-3.5 py-2 text-sm text-ink bg-white border border-ink/15 rounded-lg placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-accent"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="checkin-date"
-                  className="block text-xs font-semibold text-[#3E4C40] mb-2"
+                  className="block text-xs font-semibold text-muted mb-2"
                 >
                   Fecha estimada de llegada
                 </label>
@@ -280,25 +280,25 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
                     setValidationError('');
                     setCheckInDate(nextDate);
                   }}
-                  className="w-full min-h-[44px] px-3.5 py-2 text-sm text-[#171E18] bg-white border border-[#171E18]/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1B5E3A]"
+                  className="w-full min-h-[44px] px-3.5 py-2 text-sm text-ink bg-white border border-ink/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
                 />
               </div>
 
               <div>
-                <span className="block text-xs font-semibold text-[#3E4C40] mb-2">
+                <span className="block text-xs font-semibold text-muted mb-2">
                   Cantidad de noches (mín. {PRICING.minNights})
                 </span>
-                <div className="flex items-center justify-between min-h-[44px] px-2 bg-white border border-[#171E18]/15 rounded-lg">
+                <div className="flex items-center justify-between min-h-[44px] px-2 bg-white border border-ink/15 rounded-lg">
                   <button
                     type="button"
                     onClick={() => handleNightsChange(-1)}
                     disabled={nights <= PRICING.minNights}
                     aria-label="Restar una noche"
-                    className="w-9 h-9 inline-flex items-center justify-center rounded text-base font-semibold text-[#171E18] hover:bg-[#EFECE4] disabled:opacity-35 disabled:cursor-not-allowed transition-colors"
+                    className="w-9 h-9 inline-flex items-center justify-center rounded text-base font-semibold text-ink hover:bg-surface disabled:opacity-35 disabled:cursor-not-allowed transition-colors"
                   >
                     −
                   </button>
-                  <span className="text-sm font-semibold text-[#171E18] tabular-nums">
+                  <span className="text-sm font-semibold text-ink tabular-nums">
                     {nights} {nights === 1 ? 'noche' : 'noches'}
                   </span>
                   <button
@@ -306,7 +306,7 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
                     onClick={() => handleNightsChange(1)}
                     disabled={nights >= 14}
                     aria-label="Sumar una noche"
-                    className="w-9 h-9 inline-flex items-center justify-center rounded text-base font-semibold text-[#171E18] hover:bg-[#EFECE4] disabled:opacity-35 disabled:cursor-not-allowed transition-colors"
+                    className="w-9 h-9 inline-flex items-center justify-center rounded text-base font-semibold text-ink hover:bg-surface disabled:opacity-35 disabled:cursor-not-allowed transition-colors"
                   >
                     +
                   </button>
@@ -321,36 +321,36 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
             )}
 
             {/* Tabular Breakdown */}
-            <div className="p-5 rounded-lg bg-[#EFECE4] space-y-2.5 mb-6">
+            <div className="p-5 rounded-lg bg-surface space-y-2.5 mb-6">
               {checkInDateLabel && checkOutDateLabel && (
-                <div className="flex items-center justify-between text-xs text-[#3E4C40] pb-2 border-b border-[#171E18]/10">
+                <div className="flex items-center justify-between text-xs text-muted pb-2 border-b border-ink/10">
                   <span>Fechas seleccionadas</span>
-                  <span className="font-medium text-[#171E18]">
+                  <span className="font-medium text-ink">
                     {checkInDateLabel} al {checkOutDateLabel}
                   </span>
                 </div>
               )}
-              <div className="flex items-center justify-between text-sm text-[#3E4C40]">
+              <div className="flex items-center justify-between text-sm text-muted">
                 <span>
                   {nights} noches × {formatClp(PRICING.nightlyRateClp)} CLP
                 </span>
-                <span className="font-semibold text-[#171E18] tabular-nums">
+                <span className="font-semibold text-ink tabular-nums">
                   {formatClp(totalAmount)} CLP
                 </span>
               </div>
-              <div className="flex items-center justify-between text-sm text-[#1B5E3A]">
+              <div className="flex items-center justify-between text-sm text-accent-ink">
                 <span className="font-medium">Abono 50% para confirmar fechas</span>
                 <span className="font-semibold tabular-nums">
                   {formatClp(depositAmount)} CLP
                 </span>
               </div>
-              <div className="flex items-center justify-between text-xs text-[#3E4C40]">
+              <div className="flex items-center justify-between text-xs text-muted">
                 <span>Saldo 50% el día de llegada (antes del check-in)</span>
                 <span className="tabular-nums font-medium">
                   {formatClp(checkInBalance)} CLP
                 </span>
               </div>
-              <p className="pt-2.5 border-t border-[#171E18]/10 text-xs text-[#3E4C40] leading-relaxed">
+              <p className="pt-2.5 border-t border-ink/10 text-xs text-muted leading-relaxed">
                 Confirmada la disponibilidad por WhatsApp, la reserva se formaliza mediante transferencia bancaria directa.
               </p>
             </div>
@@ -369,7 +369,7 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
                     );
                   }
                 }}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 min-h-[44px] text-sm font-medium text-[#F6F4EF] bg-[#1B5E3A] hover:bg-[#14472B] rounded-lg transition-colors whitespace-nowrap"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 min-h-[44px] text-sm font-medium text-canvas bg-cta hover:bg-cta-hover rounded-lg transition-colors whitespace-nowrap"
               >
                 <MessageCircle className="w-4 h-4" aria-hidden="true" />
                 <span>Enviar consulta por WhatsApp</span>
@@ -378,11 +378,11 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
               <button
                 type="button"
                 onClick={handleCopySummary}
-                className="inline-flex items-center justify-center gap-2 px-4 py-3 min-h-[44px] text-sm font-medium text-[#171E18] border border-[#171E18]/20 hover:bg-[#EAE6DC] rounded-lg transition-colors whitespace-nowrap shrink-0"
+                className="inline-flex items-center justify-center gap-2 px-4 py-3 min-h-[44px] text-sm font-medium text-ink border border-ink/20 hover:bg-surface rounded-lg transition-colors whitespace-nowrap shrink-0"
               >
                 {copied ? (
                   <>
-                    <Check className="w-4 h-4 text-[#1B5E3A]" aria-hidden="true" />
+                    <Check className="w-4 h-4 text-accent" aria-hidden="true" />
                     <span>Resumen copiado</span>
                   </>
                 ) : (
@@ -397,61 +397,61 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
         </div>
 
         {/* House Rules & Cancellation Policy in Clean Hairline Grid */}
-        <div className="pt-14 border-t border-[#171E18]/12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+        <div className="pt-14 border-t border-ink/12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
           <div className="lg:col-span-7">
-            <h3 className="font-display text-2xl font-medium text-[#171E18] mb-6">
+            <h3 className="font-display text-2xl font-medium text-ink mb-6">
               Información y reglas de la casa
             </h3>
-            <dl className="divide-y divide-[#171E18]/10 border-t border-b border-[#171E18]/10">
+            <dl className="divide-y divide-ink/10 border-t border-b border-ink/10">
               {HOUSE_RULES.map((rule) => (
                 <div
                   key={rule.label}
                   className="py-3.5 grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4"
                 >
-                  <dt className="text-sm font-semibold text-[#171E18]">
+                  <dt className="text-sm font-semibold text-ink">
                     {rule.label}
                   </dt>
-                  <dd className="text-sm text-[#3E4C40] sm:col-span-2">
+                  <dd className="text-sm text-muted sm:col-span-2">
                     {rule.value}
                   </dd>
                 </div>
               ))}
             </dl>
-            <p className="text-xs text-[#3E4C40] mt-4">
+            <p className="text-xs text-muted mt-4">
               Antes de regresar a casa, recuerda devolver las llaves presencialmente.
             </p>
-            <div className="mt-5 pt-5 border-t border-[#171E18]/10 flex flex-wrap items-center justify-between gap-3">
-              <span className="text-xs sm:text-sm text-[#3E4C40]">
+            <div className="mt-5 pt-5 border-t border-ink/10 flex flex-wrap items-center justify-between gap-3">
+              <span className="text-xs sm:text-sm text-muted">
                 ¿Quieres revisar el equipamiento por ambiente e indicaciones prácticas?
               </span>
               <button
                 type="button"
                 onClick={onOpenAmenities}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[42px] text-sm font-medium text-[#171E18] bg-[#F6F4EF] border border-[#171E18]/20 hover:bg-[#EAE6DC] rounded-lg transition-colors whitespace-nowrap shrink-0"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[42px] text-sm font-medium text-ink bg-canvas border border-ink/20 hover:bg-stone-hover rounded-lg transition-colors whitespace-nowrap shrink-0"
               >
-                <ListChecks className="w-4 h-4 text-[#1B5E3A]" aria-hidden="true" />
+                <ListChecks className="w-4 h-4 text-accent" aria-hidden="true" />
                 <span>Ver servicios y comodidades incluidas</span>
               </button>
             </div>
           </div>
 
           <div className="lg:col-span-5">
-            <h3 className="font-display text-2xl font-medium text-[#171E18] mb-6">
+            <h3 className="font-display text-2xl font-medium text-ink mb-6">
               Política de cancelación
             </h3>
             <div className="space-y-6">
               {CANCELLATION_RULES.map((item) => (
                 <div
                   key={item.window}
-                  className="p-5 rounded-xl bg-[#F6F4EF] border border-[#171E18]/10"
+                  className="p-5 rounded-xl bg-canvas border border-ink/10"
                 >
-                  <p className="text-xs font-medium text-[#3E4C40] mb-1">
+                  <p className="text-xs font-medium text-muted mb-1">
                     {item.window}
                   </p>
-                  <p className="text-base font-semibold text-[#1B5E3A] mb-2">
+                  <p className="text-base font-semibold text-accent-ink mb-2">
                     {item.refund}
                   </p>
-                  <p className="text-sm text-[#3E4C40] leading-relaxed">
+                  <p className="text-sm text-muted leading-relaxed">
                     {item.note}
                   </p>
                 </div>

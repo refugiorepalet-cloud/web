@@ -63,7 +63,7 @@ export function Footer({ onOpenAmenities }: FooterProps) {
   return (
     <footer
       id="contacto"
-      className="border-t border-[#171E18]/12 bg-[#171E18] text-[#F6F4EF] py-16"
+      className="border-t border-ink/12 bg-ink text-canvas py-16"
     >
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/15">
@@ -71,16 +71,16 @@ export function Footer({ onOpenAmenities }: FooterProps) {
             <p className="font-display text-2xl font-medium tracking-tight">
               Refugio Repalet
             </p>
-            <p className="text-sm text-[#D6D3C9] leading-relaxed max-w-sm">
+            <p className="text-sm text-footer-soft leading-relaxed max-w-sm">
               Alojamiento rústico y único, diseñado exclusivamente para el descanso en pareja entre el bosque y las playas de Horcón.
             </p>
-            <p className="text-xs text-[#A5A399]">
+            <p className="text-xs text-footer-dim">
               {CONTACT.location}
             </p>
           </div>
 
           <div className="md:col-span-4 space-y-3">
-            <p className="text-xs font-semibold text-[#A5A399]">
+            <p className="text-xs font-semibold text-footer-dim">
               Contacto directo · {CONTACT.hosts}
             </p>
             <div className="space-y-2 text-sm">
@@ -88,14 +88,14 @@ export function Footer({ onOpenAmenities }: FooterProps) {
                 href={`${CONTACT.whatsappPrimary}?text=${encodeURIComponent(CONTACT.whatsappGreeting)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[#F6F4EF] hover:text-[#A3D9B1] transition-colors py-1"
+                className="flex items-center gap-2 text-canvas hover:text-footer-hover transition-colors py-1"
               >
                 <MessageCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
                 <span className="tabular-nums">WhatsApp: {CONTACT.phonePrimary}</span>
               </a>
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="flex items-center gap-2 text-[#F6F4EF] hover:text-[#A3D9B1] transition-colors py-1"
+                className="flex items-center gap-2 text-canvas hover:text-footer-hover transition-colors py-1"
               >
                 <Mail className="w-4 h-4 shrink-0" aria-hidden="true" />
                 <span>{CONTACT.email}</span>
@@ -104,14 +104,14 @@ export function Footer({ onOpenAmenities }: FooterProps) {
           </div>
 
           <div className="md:col-span-4 space-y-3">
-            <p className="text-xs font-semibold text-[#A5A399]">
+            <p className="text-xs font-semibold text-footer-dim">
               Enlaces relacionados
             </p>
             <div className="space-y-2 text-sm">
               <button
                 type="button"
                 onClick={onOpenAmenities}
-                className="flex items-center gap-2 text-[#F6F4EF] hover:text-[#A3D9B1] transition-colors py-1 text-left"
+                className="flex items-center gap-2 text-canvas hover:text-footer-hover transition-colors py-1 text-left"
               >
                 <ListChecks className="w-4 h-4 shrink-0" aria-hidden="true" />
                 <span>Servicios y comodidades</span>
@@ -120,7 +120,7 @@ export function Footer({ onOpenAmenities }: FooterProps) {
                 href={CONTACT.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[#F6F4EF] hover:text-[#A3D9B1] transition-colors py-1"
+                className="flex items-center gap-2 text-canvas hover:text-footer-hover transition-colors py-1"
               >
                 <InstagramIcon />
                 <span>Instagram</span>
@@ -130,7 +130,7 @@ export function Footer({ onOpenAmenities }: FooterProps) {
                 href={CONTACT.facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[#F6F4EF] hover:text-[#A3D9B1] transition-colors py-1"
+                className="flex items-center gap-2 text-canvas hover:text-footer-hover transition-colors py-1"
               >
                 <FacebookIcon />
                 <span>Facebook</span>
@@ -140,7 +140,7 @@ export function Footer({ onOpenAmenities }: FooterProps) {
                 href={CONTACT.airbnbProfileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[#F6F4EF] hover:text-[#A3D9B1] transition-colors py-1"
+                className="flex items-center gap-2 text-canvas hover:text-footer-hover transition-colors py-1"
               >
                 <AirbnbIcon />
                 <span>Airbnb</span>
@@ -150,7 +150,7 @@ export function Footer({ onOpenAmenities }: FooterProps) {
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#A5A399]">
+        <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-footer-dim">
           <p>Refugio Repalet · Cabañas y Casa de Huéspedes en Horcón</p>
           <p>Una escapadita a Horcón siempre es buena idea.</p>
         </div>

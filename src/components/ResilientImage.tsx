@@ -21,7 +21,7 @@ export function ResilientImage({
   if (hasError) {
     return (
       <div
-        className={`relative flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-[#EAE6DC] to-[#D9D4C7] text-[#3E4C40] p-6 text-center ${aspectClassName} ${className}`}
+        className={`relative flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-stone to-stone-hover text-muted p-6 text-center ${aspectClassName} ${className}`}
         role="img"
         aria-label={alt}
       >
