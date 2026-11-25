@@ -33,7 +33,7 @@ export default function App() {
                 </p>
 
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-[54px] font-medium leading-[1.08] tracking-tight text-ink [text-wrap:balance] mb-6">
-                  Descanso entre bosque y mar, pensado solo para dos.
+                  Descanso entre bosque y mar, pensado para dos.
                 </h1>
 
                 <p className="text-base sm:text-lg text-muted leading-relaxed mb-8">

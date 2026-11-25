@@ -417,12 +417,9 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
                 </div>
               ))}
             </dl>
-            <p className="text-xs text-muted mt-4">
-              Antes de regresar a casa, recuerda devolver las llaves presencialmente.
-            </p>
             <div className="mt-5 pt-5 border-t border-ink/10 flex flex-wrap items-center justify-between gap-3">
               <span className="text-xs sm:text-sm text-muted">
-                ¿Quieres revisar el equipamiento por ambiente e indicaciones prácticas?
+                ¿Quieres revisar el equipamiento por ambiente y otras indicaciones prácticas?
               </span>
               <button
                 type="button"
@@ -430,7 +427,7 @@ export function BookingSection({ onOpenAmenities }: BookingSectionProps) {
                 className="inline-flex items-center justify-center gap-2 px-4 py-2.5 min-h-[42px] text-sm font-medium text-ink bg-canvas border border-ink/20 hover:bg-stone-hover rounded-lg transition-colors whitespace-nowrap shrink-0"
               >
                 <ListChecks className="w-4 h-4 text-accent" aria-hidden="true" />
-                <span>Ver servicios y comodidades incluidas</span>
+                <span>Ver información completa</span>
               </button>
             </div>
           </div>

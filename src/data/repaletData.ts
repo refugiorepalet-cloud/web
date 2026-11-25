@@ -349,7 +349,7 @@ export const HOST_PILLARS = [
   {
     number: '03',
     title: 'Consejos y alianzas locales',
-    detail: 'Recomendaciones de playas secretas, senderos, observación de aves y beneficios con gastronomía del sector.',
+    detail: 'Recomendaciones de playas, senderos, observación de aves y beneficios con gastronomía del sector.',
   },
 ];
 
@@ -412,26 +412,73 @@ export const AMENITY_GROUPS: AmenityGroup[] = [
   },
 ];
 
-export const PRACTICAL_CARE_NOTES = [
-  { label: 'Reciclaje', detail: 'Separar residuos en los contenedores habilitados' },
-  { label: 'Calefont', detail: 'Sistema automático de agua caliente' },
-  { label: 'Agua', detail: 'Red local no apta para consumo directo (agua no potable)' },
-  { label: 'Energía', detail: 'Agradeceremos apagar las luces de los espacios que no estén utilizando' },
+export interface PracticalCareNote {
+  id:
+    | 'reciclaje'
+    | 'calefont'
+    | 'agua'
+    | 'energia'
+    | 'wifi'
+    | 'mascotas'
+    | 'fumadores'
+    | 'llaves';
+  label: string;
+  detail: string;
+}
+
+export const PRACTICAL_CARE_NOTES: PracticalCareNote[] = [
+  {
+    id: 'reciclaje',
+    label: 'Reciclaje',
+    detail: 'Valoramos separar los residuos.',
+  },
+  {
+    id: 'calefont',
+    label: 'Calefont',
+    detail: 'Sistema de encendido automático.',
+  },
+  {
+    id: 'agua',
+    label: 'Agua',
+    detail: 'Red local no apta para consumo directo.',
+  },
+  {
+    id: 'energia',
+    label: 'Energía',
+    detail: 'Agradeceremos apagar las luces de los espacios que no estén utilizando.',
+  },
+  {
+    id: 'wifi',
+    label: 'Wifi',
+    detail: 'Conexión inalámbrica gratuita disponible.',
+  },
+  {
+    id: 'mascotas',
+    label: 'Mascotas',
+    detail: 'No habilitado para mascotas.',
+  },
+  {
+    id: 'fumadores',
+    label: 'Fumadores',
+    detail: 'Permitido en áreas habilitadas al aire libre.',
+  },
+  {
+    id: 'llaves',
+    label: 'Devolución de llaves',
+    detail: 'Antes de regresar a casa, recuerda devolver las llaves presencialmente.',
+  },
 ];
 
 export const HOUSE_RULES = [
   { label: 'Check-in', value: 'Entre las 15:00 y las 22:00 hrs' },
   { label: 'Check-out', value: 'Antes de las 12:00 hrs' },
-  { label: 'Capacidad', value: 'Exclusivo para máximo 2 viajeros' },
+  { label: 'Capacidad', value: 'Máximo 2 viajeros' },
   {
-    label: 'Requisito de ingreso',
+    label: 'Requisitos de ingreso',
     value:
       'Por normativa legal, es obligatorio registrar la identidad de todos los huéspedes mediante cédula de identidad o pasaporte vigente antes o al momento del check-in.',
   },
-  { label: 'Mascotas', value: 'No se admiten mascotas para cuidar el descanso de todos' },
-  { label: 'Ambiente', value: 'Entorno de paz y naturaleza; no se permiten fiestas ni eventos' },
-  { label: 'Fumadores', value: 'Áreas habilitadas exclusivamente al aire libre' },
-  { label: 'Energía', value: 'Agradeceremos apagar las luces de los espacios que no estén utilizando' },
+  { label: 'Ambiente', value: 'Tranquilidad y naturaleza' },
 ];
 
 export const CANCELLATION_RULES = [

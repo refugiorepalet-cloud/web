@@ -86,7 +86,7 @@ export function CabinsSection({ onOpenAmenities }: CabinsSectionProps) {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <p className="text-xs font-medium text-muted mb-3">
-              Alojamiento exclusivo para parejas · Ensenada del Fraile
+              Alojamiento para parejas · Ensenada del Fraile
             </p>
             <h2 className="font-display text-3xl sm:text-4xl font-medium tracking-tight text-ink [text-wrap:balance]">
               Dos refugios rústicos rodeados de calma y vegetación

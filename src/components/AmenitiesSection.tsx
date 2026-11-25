@@ -1,9 +1,42 @@
 import { useEffect, useState } from 'react';
-import { X } from 'lucide-react';
+import {
+  Cigarette,
+  Droplets,
+  Flame,
+  KeyRound,
+  Lightbulb,
+  PawPrint,
+  Recycle,
+  Wifi,
+  X,
+} from 'lucide-react';
 import {
   AMENITY_GROUPS,
   PRACTICAL_CARE_NOTES,
+  type PracticalCareNote,
 } from '@/src/data/repaletData';
+
+function PracticalCareIcon({ id }: { id: PracticalCareNote['id'] }) {
+  const cls = 'w-4 h-4 text-accent-ink';
+  switch (id) {
+    case 'reciclaje':
+      return <Recycle className={cls} aria-hidden="true" />;
+    case 'calefont':
+      return <Flame className={cls} aria-hidden="true" />;
+    case 'agua':
+      return <Droplets className={cls} aria-hidden="true" />;
+    case 'energia':
+      return <Lightbulb className={cls} aria-hidden="true" />;
+    case 'wifi':
+      return <Wifi className={cls} aria-hidden="true" />;
+    case 'mascotas':
+      return <PawPrint className={cls} aria-hidden="true" />;
+    case 'fumadores':
+      return <Cigarette className={cls} aria-hidden="true" />;
+    case 'llaves':
+      return <KeyRound className={cls} aria-hidden="true" />;
+  }
+}
 
 type GroupFilter = 'all' | 'cabana' | 'cocina' | 'bano' | 'habitacion';
 
@@ -57,7 +90,7 @@ export function AmenitiesSection({
         <div className="p-6 sm:p-8 border-b border-ink/10 bg-surface flex items-start justify-between gap-4">
           <div>
             <p className="text-xs font-medium text-muted mb-1">
-              Equipamiento completo · Listo para tu estadía
+              Información completa · Equipamiento e indicaciones prácticas
             </p>
             <h2
               id="amenities-modal-title"
@@ -138,21 +171,26 @@ export function AmenitiesSection({
 
           {/* Indicaciones prácticas al pie del detalle */}
           <div className="mt-8 p-5 sm:p-6 rounded-xl bg-surface border border-ink/10">
-            <div className="pb-4 mb-4 border-b border-ink/10">
-              <p className="text-xs font-medium text-muted mb-1">
-                Equipamiento completo e indicaciones prácticas
-              </p>
+            <div className="pb-4 mb-5 border-b border-ink/10">
               <h3 className="font-display text-xl font-medium text-ink">
-                Cuidado del entorno durante tu visita
+                Indicaciones prácticas y cuidados del entorno
               </h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {PRACTICAL_CARE_NOTES.map((note) => (
-                <div key={note.label}>
-                  <p className="text-xs font-semibold text-accent-ink mb-1">
-                    {note.label}
-                  </p>
+                <div
+                  key={note.id}
+                  className="p-3.5 rounded-lg bg-canvas/70 border border-ink/8"
+                >
+                  <div className="flex items-center gap-2.5 mb-1.5">
+                    <div className="w-7 h-7 rounded-md bg-surface border border-ink/10 flex items-center justify-center shrink-0">
+                      <PracticalCareIcon id={note.id} />
+                    </div>
+                    <p className="text-xs font-semibold text-accent-ink">
+                      {note.label}
+                    </p>
+                  </div>
                   <p className="text-xs sm:text-sm text-muted leading-relaxed">
                     {note.detail}
                   </p>
