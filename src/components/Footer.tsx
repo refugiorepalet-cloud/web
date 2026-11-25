@@ -1,4 +1,4 @@
-import { ArrowUpRight, ListChecks, Mail, MessageCircle } from 'lucide-react';
+import { ArrowUpRight, BookOpen, ListChecks, Mail, MessageCircle } from 'lucide-react';
 import { CONTACT } from '@/src/data/repaletData';
 
 interface FooterProps {
@@ -81,7 +81,7 @@ export function Footer({ onOpenAmenities }: FooterProps) {
 
           <div className="md:col-span-4 space-y-3">
             <p className="text-xs font-semibold text-footer-dim">
-              Contacto directo · {CONTACT.hosts}
+              Contacto directo
             </p>
             <div className="space-y-2 text-sm">
               <a
@@ -144,6 +144,16 @@ export function Footer({ onOpenAmenities }: FooterProps) {
               >
                 <AirbnbIcon />
                 <span>Airbnb</span>
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-60 shrink-0" aria-hidden="true" />
+              </a>
+              <a
+                href={CONTACT.homifyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-canvas hover:text-footer-hover transition-colors py-1"
+              >
+                <BookOpen className="w-4 h-4 shrink-0" aria-hidden="true" />
+                <span>Mención en homify Brasil</span>
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-60 shrink-0" aria-hidden="true" />
               </a>
             </div>

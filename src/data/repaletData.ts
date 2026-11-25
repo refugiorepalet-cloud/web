@@ -69,6 +69,8 @@ export const CONTACT = {
   facebookHandle: '/refugiorepalet',
   airbnbProfileUrl: 'https://www.airbnb.cl/h/refugiorepalet',
   airbnbHandle: 'airbnb.cl/h/refugiorepalet',
+  homifyUrl:
+    'https://www.homify.com.br/livros_de_ideias/9487658/casas-de-aldeia-que-parecem-saidas-de-uma-historia',
 };
 
 // Coordenadas exactas de Refugio Repalet (Comunidad Ensenada del Fraile, Horcón).
